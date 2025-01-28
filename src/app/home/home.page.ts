@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NasaService } from '../nasa.service';
+import { FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-home',
@@ -8,7 +10,9 @@ import { NasaService } from '../nasa.service';
   standalone: false,
 })
 export class HomePage {
+  fecha = new FormControl('');
   imageData: any;
+  imageDate: any;
 
   constructor(private nasaService: NasaService) { }
   ngOnInit() {
@@ -16,5 +20,11 @@ export class HomePage {
       this.imageData = data;
     });
   }
+  MostrarFoto() {
 
+    this.nasaService.getImagesByDate(this.fecha.value).subscribe((data) => {
+      this.imageDate = data;
+    });
+
+  }
 }

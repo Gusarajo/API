@@ -22,4 +22,23 @@
       <ion-spinner name="crescent"></ion-spinner>
     </ng-template>
   </ion-content>
+
+  <ion-input [formControl]="fecha" placeholder="Pon una fecha" type="date"></ion-input>
+  <ion-button (click)="MostrarFoto()">Mostrar la foto</ion-button>
+
+  <ion-content>
+    <ng-container *ngIf="imageData; else loading">
+      <ion-card>
+        <img [src]="imageData.url" alt="NASA Image of the Day" />
+        <ion-card-header>
+          <ion-card-title>{{imageDate.title}}</ion-card-title>
+          <ion-card-subtitle>{{imageDate.date}}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
+    </ng-container>
+    <ng-template #loading>
+      <ion-spinner name="crescent"></ion-spinner>
+    </ng-template>
+  </ion-content>
+
 </ion-content>
