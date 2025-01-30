@@ -27,9 +27,9 @@
   <ion-button (click)="MostrarFoto()">Mostrar la foto</ion-button>
 
   <ion-content>
-    <ng-container *ngIf="imageData; else loading">
+    <ng-container *ngIf="imageDate; else loading">
       <ion-card>
-        <img [src]="imageData.url" alt="NASA Image of the Day" />
+        <img [src]="imageDate.url" alt="NASA Image of the Day" />
         <ion-card-header>
           <ion-card-title>{{imageDate.title}}</ion-card-title>
           <ion-card-subtitle>{{imageDate.date}}</ion-card-subtitle>
